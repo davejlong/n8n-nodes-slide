@@ -5,6 +5,11 @@ export const description: INodeProperties[] = [
 		displayName: 'Type',
 		name: 'type',
 		type: 'options',
+		displayOptions: {
+			show: {
+				resource: ['restores'],
+			},
+		},
 		default: 'image',
 		options: [
 			{
