@@ -84,6 +84,11 @@ Tested against n8n version 1.103.2
 
 ## Version history
 
-0.1.0 - Initial release with basic support for List and Get actions on each endpoint
-0.1.1 - Populated README file and fixed the Slide icon to use an SVG
+### 0.1.0
+Initial release with basic support for List and Get actions on each endpoint
 
+### 0.1.1
+Populated README file and fixed the Slide icon to use an SVG
+
+### 0.1.2
+Fix minor bug with Restores Type showing on all resources
