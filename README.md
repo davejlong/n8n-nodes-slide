@@ -1,48 +1,89 @@
-![Banner image](https://user-images.githubusercontent.com/10284570/173569848-c624317f-42b1-45a6-ab09-f0ea3c247648.png)
+# n8n-nodes-slide
 
-# n8n-nodes-starter
+This is an n8n community node. It lets you use [Slide](https://slide.tech) in your n8n workflows.
 
-This repo contains example nodes to help you get started building your own custom integrations for [n8n](https://n8n.io). It includes the node linter and other dependencies.
+> Slide offers a Modern Business Continuity & Disaster Recovery (BCDR) Solution Purpose-built for MSPs. The legacy backup solutions rely on outdated technology and offer substandard support. Slide has reimagined the BCDR from the ground up by combining modern software, high-performance hardware, and end-to-end encryption at no extra cost. The result is a faster, more secure, more cost-effective solution.
 
-To make your custom node available to the community, you must create it as an npm package, and [submit it to the npm registry](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry).
+[n8n](https://n8n.io/) is a [fair-code licensed](https://docs.n8n.io/reference/license/) workflow automation platform.
 
-If you would like your node to be available on n8n cloud you can also [submit your node for verification](https://docs.n8n.io/integrations/creating-nodes/deploy/submit-community-nodes/).
+[Installation](#installation)  
+[Operations](#operations)  
+[Credentials](#credentials)  <!-- delete if no auth needed -->  
+[Compatibility](#compatibility)  
+[Resources](#resources)  
+[Version history](#version-history)  <!-- delete if not using this section -->  
 
-## Prerequisites
+## Installation
 
-You need the following installed on your development machine:
+Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes/installation/) in the n8n community nodes documentation.
 
-* [git](https://git-scm.com/downloads)
-* Node.js and npm. Minimum version Node 20. You can find instructions on how to install both using nvm (Node Version Manager) for Linux, Mac, and WSL [here](https://github.com/nvm-sh/nvm). For Windows users, refer to Microsoft's guide to [Install NodeJS on Windows](https://docs.microsoft.com/en-us/windows/dev-environment/javascript/nodejs-on-windows).
-* Install n8n with:
-  ```
-  npm install n8n -g
-  ```
-* Recommended: follow n8n's guide to [set up your development environment](https://docs.n8n.io/integrations/creating-nodes/build/node-development-environment/).
+## Operations
 
-## Using this starter
+### Accounts
 
-These are the basic steps for working with the starter. For detailed guidance on creating and publishing nodes, refer to the [documentation](https://docs.n8n.io/integrations/creating-nodes/).
+* List accounts
+* Get an account
 
-1. [Generate a new repository](https://github.com/n8n-io/n8n-nodes-starter/generate) from this template repository.
-2. Clone your new repo:
-   ```
-   git clone https://github.com/<your organization>/<your-repo-name>.git
-   ```
-3. Run `npm i` to install dependencies.
-4. Open the project in your editor.
-5. Browse the examples in `/nodes` and `/credentials`. Modify the examples, or replace them with your own nodes.
-6. Update the `package.json` to match your details.
-7. Run `npm run lint` to check for errors or `npm run lintfix` to automatically fix errors when possible.
-8. Test your node locally. Refer to [Run your node locally](https://docs.n8n.io/integrations/creating-nodes/test/run-node-locally/) for guidance.
-9. Replace this README with documentation for your node. Use the [README_TEMPLATE](README_TEMPLATE.md) to get started.
-10. Update the LICENSE file to use your details.
-11. [Publish](https://docs.npmjs.com/packages-and-modules/contributing-packages-to-the-registry) your package to npm.
+### Agents
 
-## More information
+* List agents
+* Get an agent
 
-Refer to our [documentation on creating nodes](https://docs.n8n.io/integrations/creating-nodes/) for detailed information on building your own nodes.
+### Alerts
 
-## License
+* List alerts
+* Get an alert
 
-[MIT](https://github.com/n8n-io/n8n-nodes-starter/blob/master/LICENSE.md)
+### Backups
+
+* List backups
+* Get a backup
+
+### Clients
+
+* List clients
+* Get a client
+
+### Devices
+
+* List devices
+* Get a device
+
+### Networks
+
+* List networks
+* Get a network
+
+### Restores
+
+* List restores
+* Get a restore
+
+### Snapshots
+
+* List snapshots
+* Get a snapshot
+
+### Users
+
+* List users
+* Get a user
+
+## Credentials
+
+n8n-nodes-slide requires an API token from Slide. Retreive an API token by logging into the [Slide console](https://console.slide.tech).
+
+## Compatibility
+
+Tested against n8n version 1.103.2
+
+## Resources
+
+* [n8n community nodes documentation](https://docs.n8n.io/integrations/#community-nodes)
+* [Slide API documentation](https://docs.slide.tech/api/)
+
+## Version history
+
+0.1.0 - Initial release with basic support for List and Get actions on each endpoint
+0.1.1 - Populated README file and fixed the Slide icon to use an SVG
+

@@ -4,7 +4,7 @@ export class SlideApi implements ICredentialType {
 	name = 'slideApi';
 	displayName = 'Slide API';
 	documentationUrl = 'https://docs.slide.tech/api/#description/authentication';
-	icon: Icon = 'file:slide.png';
+	icon: Icon = 'file:slide.svg';
 
 	properties: INodeProperties[] = [
 		{

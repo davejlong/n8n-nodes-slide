@@ -15,8 +15,7 @@ export class Slide implements INodeType {
 	description: INodeTypeDescription = {
 		displayName: 'Slide',
 		name: 'slide',
-		// eslint-disable-next-line n8n-nodes-base/node-class-description-icon-not-svg
-		icon: 'file:slide.png',
+		icon: 'file:slide.svg',
 		group: ['output'],
 		version: 1,
 		subtitle: '={{$parameter["operation"] + ": " + $parameter["resource"]}}',
