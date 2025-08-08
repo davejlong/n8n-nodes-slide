@@ -1,4 +1,6 @@
 import { INodeProperties } from "n8n-workflow";
+import { getAllDescription } from "./getAll";
+import { getDescription } from "./get";
 
 export const description: INodeProperties[] = [
 	{
@@ -41,20 +43,6 @@ export const description: INodeProperties[] = [
 			},
 		],
 	},
-
-	/*
-	 * Get filter parameters
-	**/
-	{
-		displayName: 'Alert ID',
-		name: 'id',
-		type: 'string',
-		default: '',
-		displayOptions: {
-			show: {
-				resource: ['alerts'],
-				operation: ['get'],
-			},
-		},
-	},
+	...getAllDescription,
+	...getDescription,
 ];
