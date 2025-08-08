@@ -92,3 +92,6 @@ Populated README file and fixed the Slide icon to use an SVG
 
 ### 0.1.2
 Fix minor bug with Restores Type showing on all resources
+
+### 0.1.3
+Add all filter options for List and Get actions on each endpoint.
