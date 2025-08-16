@@ -53,5 +53,4 @@ export const getAllDescription:INodeProperties[] = [
 			}
 		],
 	},
-
 ];

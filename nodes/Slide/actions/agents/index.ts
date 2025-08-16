@@ -1,6 +1,6 @@
 import { INodeProperties } from "n8n-workflow";
-import { getDescription } from "./get";
 import { getAllDescription } from "./getAll";
+import { updateDescription } from "./update";
 
 export const description: INodeProperties[] = [
 	{
@@ -41,8 +41,32 @@ export const description: INodeProperties[] = [
 					},
 				},
 			},
+			{
+				name: 'Update',
+				value: 'update',
+				action: 'Update an agent',
+				routing: {
+					request: {
+						method: 'PATCH',
+						url: "=/agent/{{$parameter.id}}"
+					}
+				}
+			}
 		],
 	},
+
+	{
+		displayName: 'Agent ID',
+		name: 'id',
+		type: 'string',
+		default: '',
+		displayOptions: {
+			show: {
+				resource: ['agents'],
+				operation: ['get', 'update'],
+			},
+		},
+	},
 	...getAllDescription,
-	...getDescription,
+	...updateDescription,
 ];

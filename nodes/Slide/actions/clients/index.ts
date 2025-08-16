@@ -1,6 +1,7 @@
 import { INodeProperties } from "n8n-workflow";
 import { getAllDescription } from "./getAll";
-import { getDescription } from "./get";
+import { createDescription } from "./create";
+import { updateDescription } from "./update";
 
 export const description: INodeProperties[] = [
 	{
@@ -16,6 +17,28 @@ export const description: INodeProperties[] = [
 		},
 		default: 'getAll',
 		options: [
+			{
+				name: 'Create',
+				value: 'create',
+				action: 'Create new client',
+				routing: {
+					request: {
+						method: 'POST',
+						url: '/client',
+					},
+				},
+			},
+			{
+				name: 'Delete',
+				value: 'delete',
+				action: 'Delete a client',
+				routing: {
+					request: {
+						method: 'DELETE',
+						url: "=/client/{{$parameter.id}}",
+					},
+				},
+			},
 			{
 				name: 'Get',
 				value: 'get',
@@ -41,8 +64,32 @@ export const description: INodeProperties[] = [
 					},
 				},
 			},
+			{
+				name: 'Update',
+				value: 'update',
+				action: 'Update a client',
+				routing: {
+					request: {
+						method: 'PATCH',
+						url: "=/client/{{$parameter.id}}",
+					},
+				},
+			},
 		],
 	},
+	{
+		displayName: 'Client ID',
+		name: 'id',
+		type: 'string',
+		default: '',
+		displayOptions: {
+			show: {
+				resource: ['clients'],
+				operation: ['delete', 'get', 'update'],
+			},
+		},
+	},
+	...createDescription,
 	...getAllDescription,
-	...getDescription,
+	...updateDescription,
 ];

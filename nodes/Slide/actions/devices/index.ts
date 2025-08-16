@@ -1,6 +1,6 @@
 import { INodeProperties } from "n8n-workflow";
 import { getAllDescription } from "./getAll";
-import { getDescription } from "./get";
+import { updateDescription } from "./update";
 
 export const description: INodeProperties[] = [
 	{
@@ -41,9 +41,54 @@ export const description: INodeProperties[] = [
 					},
 				},
 			},
+			{
+				name: 'Reboot',
+				value: 'reboot',
+				action: 'Reboot a device',
+				routing: {
+					request: {
+						method: 'POST',
+						url: "=/device/{{$parameter.id}}/shutdown/reboot",
+					},
+				},
+			},
+			{
+				name: 'Shutdown',
+				value: 'shutdown',
+				action: 'Shutdown a device',
+				routing: {
+					request: {
+						method: 'POST',
+						url: "=/device/{{$parameter.id}}/shutdown/poweroff",
+					},
+				},
+			},
+			{
+				name: 'Update',
+				value: 'update',
+				action: 'Update a device',
+				routing: {
+					request: {
+						method: 'PATCH',
+						url: "=/device/{{$parameter.id}}"
+					}
+				}
+			}
 		],
 	},
 
+	{
+		displayName: 'Device ID',
+		name: 'id',
+		type: 'string',
+		default: '',
+		displayOptions: {
+			show: {
+				resource: ['devices'],
+				operation: ['get', 'reboot', 'shutdown', 'update'],
+			},
+		},
+	},
 	...getAllDescription,
-	...getDescription,
+	...updateDescription,
 ];
