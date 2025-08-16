@@ -1,4 +1,4 @@
-import { IDisplayOptions, INodeProperties } from "n8n-workflow";
+import { IDataObject, IDisplayOptions, IHttpRequestOptions, ILoadOptionsFunctions, INodeProperties, INodePropertyOptions, PaginationOptions } from "n8n-workflow";
 
 export function GetSortDescription(
 	resource: string,
@@ -68,3 +68,36 @@ export function GetSortDescription(
 		},
 	]
 }
+
+export async function GetClientsLoadMethod(this: ILoadOptionsFunctions): Promise<INodePropertyOptions[]> {
+	const requestOptions:IHttpRequestOptions = {
+		url: 'https://api.slide.tech/v1/client',
+	}
+
+	const paginationOptions: PaginationOptions = {
+		continue: "={{ $response.body.pagination.next_offset }}",
+		request: {
+			qs: {
+				offset: "={{ $response.body.pagination.next_offset }}",
+			},
+			url: requestOptions.url,
+		},
+		requestInterval: 110,
+	}
+
+	const response:IDataObject[] = await this.helpers.requestWithAuthenticationPaginated.call(this, requestOptions, 0, paginationOptions, 'slideApi');
+
+	this.logger.debug("================================");
+	this.logger.debug("Clients load");
+	this.logger.debug(JSON.stringify(response[0].res));
+	this.logger.debug("================================");
+
+
+	return Promise.resolve([]);
+}
+
+export function GetDevicesLoadMethod() {}
+
+export function GetAgentsLoadMethod() {}
+
+export function GetSnapshotsLoadMethod() {}

@@ -10,6 +10,7 @@ import * as Networks from './actions/networks';
 import * as Restores from './actions/restores';
 import * as Snapshots from './actions/snapshots';
 import * as Users from './actions/users';
+import { GetClientsLoadMethod } from "./GenericFunctions";
 
 export class Slide implements INodeType {
 	description: INodeTypeDescription = {
@@ -114,4 +115,10 @@ export class Slide implements INodeType {
 			...Users.description,
 		],
 	};
+
+	methods = {
+		loadOptions: {
+			GetClientsLoadMethod,
+		}
+	}
 }

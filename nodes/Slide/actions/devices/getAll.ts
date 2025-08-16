@@ -17,9 +17,10 @@ export const getAllDescription: INodeProperties[] = [
 		default: {},
 		options: [
 			{
-				displayName: 'Client ID',
+				displayName: 'Client Name or ID',
 				name: 'clientId',
-				type: 'string',
+				type: 'options',
+				description: 'Choose from the list, or specify an ID using an <a href="https://docs.n8n.io/code/expressions/">expression</a>',
 				default: '',
 				routing: {
 					send: {
@@ -28,6 +29,9 @@ export const getAllDescription: INodeProperties[] = [
 						type: "query",
 					},
 				},
+				typeOptions: {
+					loadOptionsMethod: 'GetClientsLoadMethod'
+				}
 			},
 		],
 	},
