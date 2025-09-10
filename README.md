@@ -35,7 +35,7 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 * [x] Reboot a device
 ### Backups
 * [x] List backups
-* [ ] Start backup
+* [x] Start backup
 * [x] Get backup
 ### Snapshots
 * [x] List snapshots
@@ -80,7 +80,7 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 ### Alerts
 * [x] List alerts
 * [x] Get alert
-* [ ] Update alert
+* [x] Update alert
 ### Accounts
 * [x] List accounts
 * [x] Get account

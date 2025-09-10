@@ -1,6 +1,6 @@
 import { INodeProperties } from "n8n-workflow";
 import { getAllDescription } from "./getAll";
-import { getDescription } from "./get";
+import { updateDescription } from "./update";
 
 export const description: INodeProperties[] = [
 	{
@@ -19,7 +19,7 @@ export const description: INodeProperties[] = [
 			{
 				name: 'Get',
 				value: 'get',
-				action: 'Get an alert',
+				action: 'Get alert',
 				routing: {
 					request: {
 						method: 'GET',
@@ -30,7 +30,7 @@ export const description: INodeProperties[] = [
 			{
 				name: 'Get Many',
 				value: 'getAll',
-				action: 'Get many alerts',
+				action: 'List alerts',
 				routing: {
 					request: {
 						method: 'GET',
@@ -41,8 +41,32 @@ export const description: INodeProperties[] = [
 					},
 				},
 			},
+			{
+				name: 'Update',
+				value: 'update',
+				action: 'Update alert',
+				routing: {
+					request: {
+						method: 'PATCH',
+						url: "=/alert/{{$parameter.id}}"
+					},
+				},
+			},
 		],
 	},
+	{
+		displayName: 'Alert ID',
+		name: 'id',
+		type: 'string',
+		default: '',
+		required: true,
+		displayOptions: {
+			show: {
+				resource: ['alerts'],
+				operation: ['get', 'update'],
+			},
+		},
+	},
 	...getAllDescription,
-	...getDescription,
+	...updateDescription,
 ];

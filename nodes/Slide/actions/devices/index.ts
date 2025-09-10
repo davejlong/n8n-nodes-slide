@@ -19,7 +19,7 @@ export const description: INodeProperties[] = [
 			{
 				name: 'Get',
 				value: 'get',
-				action: 'Get an device',
+				action: 'Get device',
 				routing: {
 					request: {
 						method: 'GET',
@@ -30,7 +30,7 @@ export const description: INodeProperties[] = [
 			{
 				name: 'Get Many',
 				value: 'getAll',
-				action: 'Get many devices',
+				action: 'List devices',
 				routing: {
 					request: {
 						method: 'GET',
@@ -82,6 +82,7 @@ export const description: INodeProperties[] = [
 		name: 'id',
 		type: 'string',
 		default: '',
+		required: true,
 		displayOptions: {
 			show: {
 				resource: ['devices'],

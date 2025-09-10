@@ -19,7 +19,7 @@ export const description: INodeProperties[] = [
 			{
 				name: 'Get',
 				value: 'get',
-				action: 'Get an agent',
+				action: 'Get agent',
 				routing: {
 					request: {
 						method: 'GET',
@@ -30,7 +30,7 @@ export const description: INodeProperties[] = [
 			{
 				name: 'Get Many',
 				value: 'getAll',
-				action: 'Get many agents',
+				action: 'List agents',
 				routing: {
 					request: {
 						method: 'GET',
@@ -60,6 +60,7 @@ export const description: INodeProperties[] = [
 		name: 'id',
 		type: 'string',
 		default: '',
+		required: true,
 		displayOptions: {
 			show: {
 				resource: ['agents'],

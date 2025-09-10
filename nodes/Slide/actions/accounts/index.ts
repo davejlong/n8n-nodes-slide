@@ -19,7 +19,7 @@ export const description: INodeProperties[] = [
 			{
 				name: 'Get',
 				value: 'get',
-				action: 'Get an account',
+				action: 'Get account',
 				routing: {
 					request: {
 						method: 'GET',
@@ -30,7 +30,7 @@ export const description: INodeProperties[] = [
 			{
 				name: 'Get Many',
 				value: 'getAll',
-				action: 'Get many accounts',
+				action: 'List accounts',
 				routing: {
 					request: {
 						method: 'GET',

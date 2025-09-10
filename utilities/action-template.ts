@@ -17,7 +17,7 @@ export const description: INodeProperties[] = [
 			{
 				name: 'Get',
 				value: 'get',
-				action: 'Get an <resource>',
+				action: 'Get <resource>',
 				routing: {
 					request: {
 						method: 'GET',
@@ -26,9 +26,9 @@ export const description: INodeProperties[] = [
 				},
 			},
 			{
-				name: 'Get Many',
+				name: 'List',
 				value: 'getAll',
-				action: 'Get many <resource>s',
+				action: 'List <resource>s',
 				routing: {
 					request: {
 						method: 'GET',

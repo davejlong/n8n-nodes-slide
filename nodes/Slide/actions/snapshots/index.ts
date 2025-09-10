@@ -1,6 +1,5 @@
 import { INodeProperties } from "n8n-workflow";
 import { getAllDescription } from "./getAll";
-import { getDescription } from "./get";
 
 export const description: INodeProperties[] = [
 	{
@@ -19,7 +18,7 @@ export const description: INodeProperties[] = [
 			{
 				name: 'Get',
 				value: 'get',
-				action: 'Get an snapshot',
+				action: 'Get snapshot',
 				routing: {
 					request: {
 						method: 'GET',
@@ -30,7 +29,7 @@ export const description: INodeProperties[] = [
 			{
 				name: 'Get Many',
 				value: 'getAll',
-				action: 'Get many snapshots',
+				action: 'List snapshots',
 				routing: {
 					request: {
 						method: 'GET',
@@ -43,6 +42,18 @@ export const description: INodeProperties[] = [
 			},
 		],
 	},
+	{
+		displayName: 'Snapshot ID',
+		name: 'id',
+		type: 'string',
+		default: '',
+		required: true,
+		displayOptions: {
+			show: {
+				resource: ['snapshots'],
+				operation: ['get'],
+			},
+		},
+	},
 	...getAllDescription,
-	...getDescription,
 ];
