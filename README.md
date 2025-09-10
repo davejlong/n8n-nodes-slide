@@ -19,55 +19,83 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 
 ## Operations
 
-### Accounts
-
-* List accounts
-* Get an account
-
 ### Agents
-
-* List agents
-* Get an agent
-
-### Alerts
-
-* List alerts
-* Get an alert
-
-### Backups
-
-* List backups
-* Get a backup
-
-### Clients
-
-* List clients
-* Get a client
-
+* [x] List agents
+* [ ] Create an agent for an auto-pair installation
+* [x] Get agent
+* [x] Update agent
+* [ ] Add agent passphrase
+* [ ] Delete agent passphrase
+* [ ] Pair agent
 ### Devices
-
-* List devices
-* Get a device
-
-### Networks
-
-* List networks
-* Get a network
-
-### Restores
-
-* List restores
-* Get a restore
-
+* [x] List devices
+* [x] Get device
+* [x] Update device
+* [x] Power off a device
+* [x] Reboot a device
+### Backups
+* [x] List backups
+* [ ] Start backup
+* [x] Get backup
 ### Snapshots
-
-* List snapshots
-* Get a snapshot
-
+* [x] List snapshots
+* [x] Get snapshot
+### Restores (File)
+* [x] List file restores
+* [ ] Create file restore
+* [ ] Delete file restore
+* [x] Get file restore
+* [ ] Browse file restore
+### Restores (Virtual Machine)
+* [x] List virtual machines
+* [ ] Create virtual machine
+* [ ] Delete virtual machine
+* [x] Get virtual machine
+* [ ] Update virtual machine
+### Restores (Image)
+* [x] List image exports
+* [ ] Create image export
+* [ ] Delete image export
+* [x] Get image export
+* [ ] Update image export
+* [ ] Browse image export
+### Networks
+* [x] List networks
+* [ ] Create network
+* [ ] Delete network
+* [x] Get network
+* [ ] Update network
+* [ ] Create IPsec connection
+* [ ] Delete IPsec connection
+* [ ] Update IPsec connection
+* [ ] Create port forward
+* [ ] Delete port forward
+* [ ] Update port forward
+* [ ] Create WireGuard peer
+* [ ] Delete WireGuard peer
+* [ ] Update WireGuard peer
 ### Users
-
-* List users
-* Get a user
+* [x] List users
+* [x] Get user
+### Alerts
+* [x] List alerts
+* [x] Get alert
+* [ ] Update alert
+### Accounts
+* [x] List accounts
+* [x] Get account
+* [x] Update account
+### Clients
+* [x] List clients
+* [x] Create client
+* [x] Delete client
+* [x] Get client
+* [x] Update client
+### Audits
+* [ ] List audit logs
+* [ ] Get audit log
+* [ ] List audit actions
+* [ ] List audit resource types
 
 ## Credentials
 
