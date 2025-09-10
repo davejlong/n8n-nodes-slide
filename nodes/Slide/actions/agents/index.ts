@@ -1,6 +1,9 @@
 import { INodeProperties } from "n8n-workflow";
 import { getAllDescription } from "./getAll";
 import { updateDescription } from "./update";
+import { passphraseDescription } from "./passphrase";
+import { pairDescription } from "./pair";
+import { createDescription } from "./create";
 
 export const description: INodeProperties[] = [
 	{
@@ -16,6 +19,40 @@ export const description: INodeProperties[] = [
 		},
 		default: 'getAll',
 		options: [
+			{
+				name: 'Add Passphrase',
+				value: 'addPassphrase',
+				action: 'Add agent passphrase',
+				routing: {
+					request: {
+						method: 'POST',
+						url: "=/agent/{{$parameter.id}}/passphrase",
+					},
+				},
+			},
+			{
+				name: 'Create',
+				value: 'create',
+				// eslint-disable-next-line n8n-nodes-base/node-param-operation-option-action-miscased
+				action: 'Create an agent for an auto-pair installation',
+				routing: {
+					request: {
+						method: 'POST',
+						url: "/agent",
+					},
+				},
+			},
+			{
+				name: 'Delete Passphrase',
+				value: 'deletePassphrase',
+				action: 'Delete agent passphrase',
+				routing: {
+					request: {
+						method: 'DELETE',
+						url: "=/agent/{{$parameter.id}}/passphrase/{{$parameter.passphraseId}}",
+					},
+				},
+			},
 			{
 				name: 'Get',
 				value: 'get',
@@ -42,6 +79,17 @@ export const description: INodeProperties[] = [
 				},
 			},
 			{
+				name: 'Pair Agent',
+				value: 'pair',
+				action: 'Pair agent',
+				routing: {
+					request: {
+						method: 'POST',
+						url: '/agent/pair',
+					},
+				},
+			},
+			{
 				name: 'Update',
 				value: 'update',
 				action: 'Update an agent',
@@ -64,10 +112,13 @@ export const description: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['agents'],
-				operation: ['get', 'update'],
+				operation: ['addPassphrase', 'deletePassphrase', 'get', 'update'],
 			},
 		},
 	},
 	...getAllDescription,
 	...updateDescription,
+	...passphraseDescription,
+	...pairDescription,
+	...createDescription,
 ];

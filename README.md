@@ -21,12 +21,12 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 
 ### Agents
 * [x] List agents
-* [ ] Create an agent for an auto-pair installation
+* [x] Create an agent for an auto-pair installation
 * [x] Get agent
 * [x] Update agent
-* [ ] Add agent passphrase
-* [ ] Delete agent passphrase
-* [ ] Pair agent
+* [x] Add agent passphrase
+* [x] Delete agent passphrase
+* [x] Pair agent
 ### Devices
 * [x] List devices
 * [x] Get device
