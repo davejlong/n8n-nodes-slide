@@ -61,10 +61,10 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 * [ ] Browse image export
 ### Networks
 * [x] List networks
-* [ ] Create network
-* [ ] Delete network
+* [x] Create network
+* [x] Delete network
 * [x] Get network
-* [ ] Update network
+* [x] Update network
 * [ ] Create IPsec connection
 * [ ] Delete IPsec connection
 * [ ] Update IPsec connection

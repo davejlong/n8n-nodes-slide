@@ -1,5 +1,7 @@
 import { INodeProperties } from "n8n-workflow";
 import { getAllDescription } from "./getAll";
+import { createDescription } from "./create";
+import { updateDescription } from "./update";
 
 export const description: INodeProperties[] = [
 	{
@@ -15,6 +17,28 @@ export const description: INodeProperties[] = [
 		},
 		default: 'getAll',
 		options: [
+			{
+				name: 'Create',
+				value: 'create',
+				action: 'Create network',
+				routing: {
+					request: {
+						method: 'POST',
+						url: "/network",
+					},
+				},
+			},
+			{
+				name: 'Delete',
+				value: 'delete',
+				action: 'Delete network',
+				routing: {
+					request: {
+						method: 'DELETE',
+						url: "=/network/{{$parameter.id}}",
+					},
+				},
+			},
 			{
 				name: 'Get',
 				value: 'get',
@@ -40,6 +64,17 @@ export const description: INodeProperties[] = [
 					},
 				},
 			},
+			{
+				name: 'Update',
+				value: 'update',
+				action: 'Update network',
+				routing: {
+					request: {
+						method: 'PATCH',
+						url: "=/network/{{$parameter.id}}",
+					},
+				},
+			},
 		],
 	},
 	{
@@ -51,9 +86,11 @@ export const description: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['networks'],
-				operation: ['get'],
+				operation: ['delete', 'get', 'update'],
 			},
 		},
 	},
+	...createDescription,
 	...getAllDescription,
+	...updateDescription,
 ];
