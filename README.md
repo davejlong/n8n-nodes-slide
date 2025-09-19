@@ -92,10 +92,10 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 * [x] Get client
 * [x] Update client
 ### Audits
-* [ ] List audit logs
-* [ ] Get audit log
-* [ ] List audit actions
-* [ ] List audit resource types
+* [x] List audit logs
+* [x] Get audit log
+* [x] List audit actions
+* [x] List audit resource types
 
 ## Credentials
 

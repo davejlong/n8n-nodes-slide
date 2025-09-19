@@ -3,6 +3,7 @@ import { INodeType, INodeTypeDescription, NodeConnectionType } from "n8n-workflo
 import * as Accounts from './actions/accounts';
 import * as Agents from './actions/agents';
 import * as Alerts from './actions/alerts';
+import * as Audits from './actions/audits';
 import * as Backups from './actions/backups';
 import * as Clients from './actions/clients';
 import * as Devices from './actions/devices';
@@ -73,6 +74,10 @@ export class Slide implements INodeType {
 						value: "alerts"
 					},
 					{
+						name: 'Audit',
+						value: 'audits',
+					},
+					{
 						name: "Backup",
 						value: "backups"
 					},
@@ -105,6 +110,7 @@ export class Slide implements INodeType {
 			...Accounts.description,
 			...Agents.description,
 			...Alerts.description,
+			...Audits.description,
 			...Backups.description,
 			...Clients.description,
 			...Devices.description,
