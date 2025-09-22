@@ -42,20 +42,20 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 * [x] Get snapshot
 ### Restores (File)
 * [x] List file restores
-* [ ] Create file restore
-* [ ] Delete file restore
+* [x] Create file restore
+* [x] Delete file restore
 * [x] Get file restore
 * [ ] Browse file restore
 ### Restores (Virtual Machine)
 * [x] List virtual machines
-* [ ] Create virtual machine
-* [ ] Delete virtual machine
+* [x] Create virtual machine
+* [x] Delete virtual machine
 * [x] Get virtual machine
 * [ ] Update virtual machine
 ### Restores (Image)
 * [x] List image exports
-* [ ] Create image export
-* [ ] Delete image export
+* [x] Create image export
+* [x] Delete image export
 * [x] Get image export
 * [ ] Update image export
 * [ ] Browse image export

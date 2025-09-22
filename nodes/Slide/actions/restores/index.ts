@@ -1,5 +1,6 @@
 import { INodeProperties } from "n8n-workflow";
 import { getAllDescription } from "./getAll";
+import { createDescription } from "./create";
 
 export const description: INodeProperties[] = [
 	{
@@ -65,6 +66,28 @@ export const description: INodeProperties[] = [
 					},
 				},
 			},
+			{
+				name: 'Create',
+				value: 'create',
+				action: 'Create restore',
+				routing: {
+					request: {
+						method: 'POST',
+						url: "=/restore/{{$parameter.type}}",
+					},
+				},
+			},
+			{
+				name: 'Delete',
+				value: 'delete',
+				action: 'Delete restore',
+				routing: {
+					request: {
+						method: 'DELETE',
+						url: "=/restore/{{$parameter.type}}/{{$parameter.id}}",
+					},
+				},
+			},
 		],
 	},
 	{
@@ -76,9 +99,10 @@ export const description: INodeProperties[] = [
 		displayOptions: {
 			show: {
 				resource: ['restores'],
-				operation: ['get'],
+				operation: ['get', 'delete'],
 			},
 		},
 	},
 	...getAllDescription,
+	...createDescription,
 ];
