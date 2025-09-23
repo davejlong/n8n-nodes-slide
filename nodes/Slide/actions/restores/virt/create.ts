@@ -1,6 +1,48 @@
 import { INodeProperties } from "n8n-workflow";
 
-export const createVirtDescription: INodeProperties[] = [
+export const createDescription: INodeProperties[] = [
+	{
+		displayName: 'Device ID',
+		name: 'deviceId',
+		type: 'string',
+		default: '',
+		required: true,
+		displayOptions: {
+			show: {
+				resource: ['restores'],
+				operation: ['create'],
+				type: ['virt'],
+			},
+		},
+		routing: {
+			send: {
+				property: 'device_id',
+				value: "={{$value}}",
+				type: 'body',
+			}
+		}
+	},
+	{
+		displayName: 'Snapshot ID',
+		name: 'snapshotId',
+		type: 'string',
+		default: '',
+		required: true,
+		displayOptions: {
+			show: {
+				resource: ['restores'],
+				operation: ['create'],
+				type: ['virt'],
+			},
+		},
+		routing: {
+			send: {
+				property: 'snapshot_id',
+				value: "={{$value}}",
+				type: 'body',
+			}
+		}
+	},
 	{
 		displayName: 'Purpose',
 		name: 'purpose',
@@ -97,6 +139,7 @@ export const createVirtDescription: INodeProperties[] = [
 	{
 		displayName: 'Other Options',
 		name: 'otherOptions',
+		placeholder: 'Other Options',
 		type: 'collection',
 		default: {},
 		displayOptions: {
@@ -172,6 +215,22 @@ export const createVirtDescription: INodeProperties[] = [
 					// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
 					{ name: 'VirtIO', value: 'virtio' },
 				],
+			},
+			{
+				displayName: 'Passphrase',
+				name: 'passphrase',
+				type: 'string',
+				typeOptions: {
+					password: true,
+				},
+				default: '',
+				routing: {
+					send: {
+						property: 'passphrase',
+						value: "={{$value}}",
+						type: 'body',
+					},
+				},
 			},
 		],
 	},

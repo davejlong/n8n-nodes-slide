@@ -1,6 +1,4 @@
 import { INodeProperties } from "n8n-workflow";
-import { createVirtDescription } from "./create/virt";
-import { createImageDescription } from "./create/image";
 
 export const createDescription: INodeProperties[] = [
 	{
@@ -13,6 +11,7 @@ export const createDescription: INodeProperties[] = [
 			show: {
 				resource: ['restores'],
 				operation: ['create'],
+				type: ['file'],
 			},
 		},
 		routing: {
@@ -33,6 +32,7 @@ export const createDescription: INodeProperties[] = [
 			show: {
 				resource: ['restores'],
 				operation: ['create'],
+				type: ['file'],
 			},
 		},
 		routing: {
@@ -44,20 +44,35 @@ export const createDescription: INodeProperties[] = [
 		}
 	},
 	{
-		displayName: 'Passphrase',
-		name: 'passphrase',
-		type: 'string',
-		typeOptions: {
-			password: true,
-		},
-		default: '',
+		displayName: 'Other Options',
+		name: 'other',
+		placeholder: 'Other Options',
+		type: 'collection',
+		default: {},
 		displayOptions: {
 			show: {
 				resource: ['restores'],
 				operation: ['create'],
+				type: ['file'],
 			},
 		},
-	},
-	...createVirtDescription,
-	...createImageDescription,
+		options: [
+			{
+				displayName: 'Passphrase',
+				name: 'passphrase',
+				type: 'string',
+				typeOptions: {
+					password: true,
+				},
+				default: '',
+				routing: {
+					send: {
+						property: 'passphrase',
+						value: "={{$value}}",
+						type: 'body',
+					},
+				},
+			},
+		]
+	}
 ];
