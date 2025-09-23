@@ -123,3 +123,9 @@ Fix minor bug with Restores Type showing on all resources
 
 ### 0.1.3
 Add all filter options for List and Get actions on each endpoint.
+
+### 0.2.0
+**NOTE: 0.2.0 introduces breaking changes to the Restore actions nodes.**
+
+Adds all of the Restore and Audit Log actions as well as many of the Network actions.
+
