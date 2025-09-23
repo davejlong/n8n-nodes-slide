@@ -9,9 +9,8 @@ export const createDescription: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
-				resource: ['restores'],
+				resource: ['restores-virt'],
 				operation: ['create'],
-				type: ['virt'],
 			},
 		},
 		routing: {
@@ -30,9 +29,8 @@ export const createDescription: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
-				resource: ['restores'],
+				resource: ['restores-virt'],
 				operation: ['create'],
-				type: ['virt'],
 			},
 		},
 		routing: {
@@ -50,9 +48,8 @@ export const createDescription: INodeProperties[] = [
 		default: 'test',
 		displayOptions: {
 			show: {
-				resource: ['restores'],
+				resource: ['restores-virt'],
 				operation: ['create'],
-				type: ['virt'],
 			},
 		},
 		options: [
@@ -74,9 +71,8 @@ export const createDescription: INodeProperties[] = [
 		default: 'network-id',
 		displayOptions: {
 			show: {
-				resource: ['restores'],
+				resource: ['restores-virt'],
 				operation: ['create'],
-				type: ['virt'],
 			},
 		},
 		options: [
@@ -102,9 +98,8 @@ export const createDescription: INodeProperties[] = [
 		default: '',
 		displayOptions: {
 			show: {
-				resource: ['restores'],
+				resource: ['restores-virt'],
 				operation: ['create'],
-				type: ['virt'],
 				networkType: ['network-id']
 			},
 		},
@@ -116,26 +111,26 @@ export const createDescription: INodeProperties[] = [
 			}
 		}
 	},
-	{
-		displayName: 'Enable Administrator User',
-		name: 'passwordlessAdminUser',
-		type: 'boolean',
-		default: false,
-		displayOptions: {
-			show: {
-				resource: ['restores'],
-				operation: ['create'],
-				type: ['virt'],
-			},
-		},
-		routing: {
-			send: {
-				property: 'boot_mods',
-				value: "={{$if($value, 'passwordless_admin_user', '')}}",
-				type: 'body',
-			}
-		}
-	},
+	//TODO: Figure out how to send an array of strings as the property
+	// {
+	// 	displayName: 'Enable Administrator User',
+	// 	name: 'passwordlessAdminUser',
+	// 	type: 'boolean',
+	// 	default: false,
+	// 	displayOptions: {
+	// 		show: {
+	// 			resource: ['restores-virt'],
+	// 			operation: ['create'],
+	// 		},
+	// 	},
+	// 	routing: {
+	// 		send: {
+	// 			property: 'boot_mods',
+	// 			value: "={{$if($value, 'passwordless_admin_user', '')}}",
+	// 			type: 'body',
+	// 		}
+	// 	}
+	// },
 	{
 		displayName: 'Other Options',
 		name: 'otherOptions',
@@ -144,9 +139,8 @@ export const createDescription: INodeProperties[] = [
 		default: {},
 		displayOptions: {
 			show: {
-				resource: ['restores'],
+				resource: ['restores-virt'],
 				operation: ['create'],
-				type: ['virt'],
 			},
 		},
 		options: [
@@ -215,6 +209,13 @@ export const createDescription: INodeProperties[] = [
 					// eslint-disable-next-line n8n-nodes-base/node-param-display-name-miscased
 					{ name: 'VirtIO', value: 'virtio' },
 				],
+				routing: {
+					send: {
+						property: 'network_model',
+						value: "={{$value}}",
+						type: 'body',
+					}
+				}
 			},
 			{
 				displayName: 'Passphrase',

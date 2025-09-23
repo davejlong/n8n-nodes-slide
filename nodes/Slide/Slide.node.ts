@@ -94,8 +94,16 @@ export class Slide implements INodeType {
 						value: "networks"
 					},
 					{
-						name: "Restore",
-						value: "restores"
+						name: "Restore (File)",
+						value: "restores-file",
+					},
+					{
+						name: 'Restore (Image)',
+						value: 'restores-image',
+					},
+					{
+						name: 'Restore (Virtual Machine)',
+						value: 'restores-virt',
 					},
 					{
 						name: "Snapshot",

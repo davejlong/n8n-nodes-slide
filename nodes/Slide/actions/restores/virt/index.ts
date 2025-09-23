@@ -1,5 +1,7 @@
 import { INodeProperties } from "n8n-workflow";
 import { createDescription } from "./create";
+import { GetSortDescription } from "../../../GenericFunctions";
+import { updateDescription } from "./update";
 
 export const virtDescription: INodeProperties[] = [
 	{
@@ -7,11 +9,9 @@ export const virtDescription: INodeProperties[] = [
 		name: 'operation',
 		type: 'options',
 		noDataExpression: true,
-
 		displayOptions: {
 			show: {
-				resource: ['restores'],
-				type: ['virt'],
+				resource: ['restores-virt'],
 			},
 		},
 		default: 'getAll',
@@ -23,7 +23,7 @@ export const virtDescription: INodeProperties[] = [
 				routing: {
 					request: {
 						method: 'POST',
-						url: "=/restore/{{$parameter.type}}",
+						url: "=/restore/virt",
 					},
 				},
 			},
@@ -34,7 +34,7 @@ export const virtDescription: INodeProperties[] = [
 				routing: {
 					request: {
 						method: 'DELETE',
-						url: "=/restore/{{$parameter.type}}/{{$parameter.id}}",
+						url: "=/restore/virt/{{$parameter.id}}",
 					},
 				},
 			},
@@ -45,7 +45,7 @@ export const virtDescription: INodeProperties[] = [
 				routing: {
 					request: {
 						method: 'GET',
-						url: "=/restore/{{$parameter.type}}/{{$parameter.id}}",
+						url: "=/restore/virt/{{$parameter.id}}",
 					},
 				},
 			},
@@ -56,7 +56,7 @@ export const virtDescription: INodeProperties[] = [
 				routing: {
 					request: {
 						method: 'GET',
-						url: "=/restore/{{$parameter.type}}",
+						url: "=/restore/virt",
 					},
 					send: {
 						paginate: true,
@@ -70,12 +70,13 @@ export const virtDescription: INodeProperties[] = [
 				routing: {
 					request: {
 						method: 'PATCH',
-						url: "=/restore/{{$parameter.type}}/{{$parameter.id}}",
+						url: "=/restore/virt/{{$parameter.id}}",
 					},
 				},
 			},
 		],
 	},
+	...GetSortDescription('restores-virt', ['id']),
 	{
 		displayName: 'Virtual Machine ID',
 		name: 'id',
@@ -84,11 +85,11 @@ export const virtDescription: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
-				resource: ['restores'],
+				resource: ['restores-virt'],
 				operation: ['get', 'delete', 'update'],
-				type: ['virt'],
 			},
 		},
 	},
 	...createDescription,
+	...updateDescription,
 ];

@@ -1,5 +1,6 @@
 import { INodeProperties } from "n8n-workflow";
 import { createDescription } from "./create";
+import { GetSortDescription } from "../../../GenericFunctions";
 
 export const fileDescription: INodeProperties[] = [
 	{
@@ -10,8 +11,7 @@ export const fileDescription: INodeProperties[] = [
 
 		displayOptions: {
 			show: {
-				resource: ['restores'],
-				type: ['file'],
+				resource: ['restores-file'],
 			},
 		},
 		default: 'getAll',
@@ -23,7 +23,7 @@ export const fileDescription: INodeProperties[] = [
 				routing: {
 					request: {
 						method: 'GET',
-						url: "=/restore/{{$parameter.type}}/{{$parameter.id}}/browse",
+						url: "=/restore/file/{{$parameter.id}}/browse",
 					},
 					send: {
 						paginate: true,
@@ -37,7 +37,7 @@ export const fileDescription: INodeProperties[] = [
 				routing: {
 					request: {
 						method: 'POST',
-						url: "=/restore/{{$parameter.type}}",
+						url: "=/restore/file",
 					},
 				},
 			},
@@ -48,7 +48,7 @@ export const fileDescription: INodeProperties[] = [
 				routing: {
 					request: {
 						method: 'DELETE',
-						url: "=/restore/{{$parameter.type}}/{{$parameter.id}}",
+						url: "=/restore/file/{{$parameter.id}}",
 					},
 				},
 			},
@@ -59,7 +59,7 @@ export const fileDescription: INodeProperties[] = [
 				routing: {
 					request: {
 						method: 'GET',
-						url: "=/restore/{{$parameter.type}}/{{$parameter.id}}",
+						url: "=/restore/file/{{$parameter.id}}",
 					},
 				},
 			},
@@ -70,7 +70,7 @@ export const fileDescription: INodeProperties[] = [
 				routing: {
 					request: {
 						method: 'GET',
-						url: "=/restore/{{$parameter.type}}",
+						url: "=/restore/file",
 					},
 					send: {
 						paginate: true,
@@ -79,6 +79,7 @@ export const fileDescription: INodeProperties[] = [
 			},
 		],
 	},
+	...GetSortDescription('restores-file', ['id']),
 	{
 		displayName: 'File Restore ID',
 		name: 'id',
@@ -87,9 +88,8 @@ export const fileDescription: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
-				resource: ['restores'],
+				resource: ['restores-file'],
 				operation: ['get', 'delete', 'browse'],
-				type: ['file'],
 			},
 		},
 	},

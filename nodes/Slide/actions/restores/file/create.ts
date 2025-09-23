@@ -9,9 +9,8 @@ export const createDescription: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
-				resource: ['restores'],
+				resource: ['restores-file'],
 				operation: ['create'],
-				type: ['file'],
 			},
 		},
 		routing: {
@@ -30,9 +29,8 @@ export const createDescription: INodeProperties[] = [
 		required: true,
 		displayOptions: {
 			show: {
-				resource: ['restores'],
+				resource: ['restores-file'],
 				operation: ['create'],
-				type: ['file'],
 			},
 		},
 		routing: {
@@ -51,9 +49,8 @@ export const createDescription: INodeProperties[] = [
 		default: {},
 		displayOptions: {
 			show: {
-				resource: ['restores'],
+				resource: ['restores-file'],
 				operation: ['create'],
-				type: ['file'],
 			},
 		},
 		options: [
