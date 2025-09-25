@@ -1,5 +1,5 @@
 import { INodeProperties } from "n8n-workflow";
-import { GetSortDescription } from "../../../GenericFunctions";
+import { SlideNode } from "../../../GenericFunctions";
 
 export const imageDescription: INodeProperties[] = [
 	{
@@ -88,7 +88,7 @@ export const imageDescription: INodeProperties[] = [
 			},
 		],
 	},
-	...GetSortDescription('restores-image', ['id']),
+	...SlideNode.GetSortDescription('restores-image', ['id']),
 	{
 		displayName: 'Image Export ID',
 		name: 'id',
@@ -170,26 +170,23 @@ export const imageDescription: INodeProperties[] = [
 			},
 		},
 	},
-	//TODO: Figure out how to send an array of strings as the property
-	// {
-	// 	displayName: 'Enable Administrator User',
-	// 	name: 'passwordlessAdminUser',
-	// 	type: 'boolean',
-	// 	default: false,
-	// 	displayOptions: {
-	// 		show: {
-	// 			resource: ['restores-image'],
-	// 			operation: ['create'],
-	// 		},
-	// 	},
-	// 	routing: {
-	// 		send: {
-	// 			property: 'boot_mods',
-	// 			value: "={{$if($value, 'passwordless_admin_user', '')}}",
-	// 			type: 'body',
-	// 		}
-	// 	}
-	// },
+	{
+		displayName: 'Enable Administrator User',
+		name: 'passwordlessAdminUser',
+		type: 'boolean',
+		default: false,
+		displayOptions: {
+			show: {
+				resource: ['restores-image'],
+				operation: ['create'],
+			},
+		},
+		routing: {
+			send: {
+				preSend: [SlideNode.compileBootMods],
+			}
+		}
+	},
 	{
 		displayName: 'Enable NFS',
 		name: 'nfs',

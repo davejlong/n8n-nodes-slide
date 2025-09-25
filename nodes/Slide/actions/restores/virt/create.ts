@@ -1,4 +1,5 @@
 import { INodeProperties } from "n8n-workflow";
+import { SlideNode } from "../../../GenericFunctions";
 
 export const createDescription: INodeProperties[] = [
 	{
@@ -111,26 +112,23 @@ export const createDescription: INodeProperties[] = [
 			}
 		}
 	},
-	//TODO: Figure out how to send an array of strings as the property
-	// {
-	// 	displayName: 'Enable Administrator User',
-	// 	name: 'passwordlessAdminUser',
-	// 	type: 'boolean',
-	// 	default: false,
-	// 	displayOptions: {
-	// 		show: {
-	// 			resource: ['restores-virt'],
-	// 			operation: ['create'],
-	// 		},
-	// 	},
-	// 	routing: {
-	// 		send: {
-	// 			property: 'boot_mods',
-	// 			value: "={{$if($value, 'passwordless_admin_user', '')}}",
-	// 			type: 'body',
-	// 		}
-	// 	}
-	// },
+	{
+		displayName: 'Enable Administrator User',
+		name: 'passwordlessAdminUser',
+		type: 'boolean',
+		default: false,
+		displayOptions: {
+			show: {
+				resource: ['restores-virt'],
+				operation: ['create'],
+			},
+		},
+		routing: {
+			send: {
+				preSend: [SlideNode.compileBootMods],
+			}
+		}
+	},
 	{
 		displayName: 'Other Options',
 		name: 'otherOptions',

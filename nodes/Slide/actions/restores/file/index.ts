@@ -1,6 +1,6 @@
 import { INodeProperties } from "n8n-workflow";
 import { createDescription } from "./create";
-import { GetSortDescription } from "../../../GenericFunctions";
+import { SlideNode } from "../../../GenericFunctions";
 
 export const fileDescription: INodeProperties[] = [
 	{
@@ -79,7 +79,7 @@ export const fileDescription: INodeProperties[] = [
 			},
 		],
 	},
-	...GetSortDescription('restores-file', ['id']),
+	...SlideNode.GetSortDescription('restores-file', ['id']),
 	{
 		displayName: 'File Restore ID',
 		name: 'id',

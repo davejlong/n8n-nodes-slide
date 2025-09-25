@@ -1,11 +1,11 @@
 import { INodeProperties } from "n8n-workflow";
-import { GetSortDescription } from "../../GenericFunctions";
+import { SlideNode } from "../../GenericFunctions";
 
 export const getAllDescription: INodeProperties[] = [
-	...GetSortDescription('restores', ['id'], {
+	...SlideNode.GetSortDescription('restores', ['id'], {
 		type: ['file', 'image']
 	}),
-	...GetSortDescription('restores', ['created'], {
+	...SlideNode.GetSortDescription('restores', ['created'], {
 		type: ['virt']
 	}),
 ];

@@ -65,15 +65,15 @@ Follow the [installation guide](https://docs.n8n.io/integrations/community-nodes
 * [x] Delete network
 * [x] Get network
 * [x] Update network
-* [ ] Create IPsec connection
-* [ ] Delete IPsec connection
-* [ ] Update IPsec connection
-* [ ] Create port forward
-* [ ] Delete port forward
-* [ ] Update port forward
-* [ ] Create WireGuard peer
-* [ ] Delete WireGuard peer
-* [ ] Update WireGuard peer
+* [x] Create IPsec connection
+* [x] Delete IPsec connection
+* [x] Update IPsec connection
+* [x] Create port forward
+* [x] Delete port forward
+* [x] Update port forward
+* [x] Create WireGuard peer
+* [x] Delete WireGuard peer
+* [x] Update WireGuard peer
 ### Users
 * [x] List users
 * [x] Get user

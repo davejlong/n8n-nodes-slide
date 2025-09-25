@@ -1,6 +1,6 @@
 import { INodeProperties } from "n8n-workflow";
 import { createDescription } from "./create";
-import { GetSortDescription } from "../../../GenericFunctions";
+import { SlideNode } from "../../../GenericFunctions";
 import { updateDescription } from "./update";
 
 export const virtDescription: INodeProperties[] = [
@@ -76,7 +76,7 @@ export const virtDescription: INodeProperties[] = [
 			},
 		],
 	},
-	...GetSortDescription('restores-virt', ['id']),
+	...SlideNode.GetSortDescription('restores-virt', ['id']),
 	{
 		displayName: 'Virtual Machine ID',
 		name: 'id',
