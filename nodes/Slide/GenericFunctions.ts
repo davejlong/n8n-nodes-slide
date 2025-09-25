@@ -1,4 +1,4 @@
-import { IDisplayOptions, IExecuteSingleFunctions, IHttpRequestOptions, INodeProperties, JsonObject } from "n8n-workflow";
+import { IDisplayOptions, IExecuteSingleFunctions, IHttpRequestOptions, INodeProperties } from "n8n-workflow";
 
 
 export namespace SlideNode {
