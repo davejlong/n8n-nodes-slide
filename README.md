@@ -129,3 +129,7 @@ Add all filter options for List and Get actions on each endpoint.
 
 Adds all of the Restore and Audit Log actions as well as many of the Network actions.
 
+### 1.0.0
+
+n8n-nodes-slide now has nodes for every Slide API endpoint!
+
